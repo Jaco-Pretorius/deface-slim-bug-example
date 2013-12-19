@@ -1,0 +1,18 @@
+nav#top-nav-bar
+  ul#nav-bar.inline data-hook=''
+    - if try_spree_current_user
+      .nav-links.high_res
+        li.dropdown
+          .welcome Welcome #{try_spree_current_user.firstname} #{try_spree_current_user.lastname} &#9662;
+          ul.dropdown
+            li = link_to 'Account', account_path
+            li = link_to 'Log out', logout_path
+
+        - if true
+          ul
+            - if true
+              li.first This should show up
+            - if false
+              li This should not show up
+        - unless true
+          p This should not show up
